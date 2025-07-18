@@ -1,0 +1,146 @@
+.checkout-container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.checkout-container h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table thead {
+    background-color: #f4f4f4;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table img {
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.radio-block {
+    display: block;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.btn-checkout {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-checkout:hover {
+    background-color: #218838;
+}
+
+.checkout-form {
+    background-color: #f9f9f9;
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.checkout-form h2 {
+    color: #444;
+}
+
+.checkout-form a {
+    color: #007bff;
+    text-decoration: none;
+}
+.checkout-form a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+#form-aggiungi-indirizzo {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.checkout-form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 500;
+}
+
+.checkout-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-checkout {
+    background-color: #28a745;
+    border: none;
+    padding: 10px 25px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-checkout:hover {
+    background-color: #218838;
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    border: none;
+    padding: 10px 25px;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    max-height: 4rem;
+}
+
+.btn-secondary:hover {
+    background-color: #bbb;
+}
+.metodopagamento select{
+    font-size: 2rem;
+}
+
+

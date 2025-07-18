@@ -1,0 +1,360 @@
+Elenco del percorso delle cartelle per il volume Windows
+Numero di serie del volume: BE04-560F
+C:.
+¦   .gitignore
+¦   mvnw
+¦   mvnw.cmd
+¦   pom.xml
+¦   tree.txt
+¦   
++---.idea
+¦   ¦   .gitignore
+¦   ¦   compiler.xml
+¦   ¦   deployment.xml
+¦   ¦   encodings.xml
+¦   ¦   jarRepositories.xml
+¦   ¦   jsLibraryMappings.xml
+¦   ¦   misc.xml
+¦   ¦   uiDesigner.xml
+¦   ¦   webContexts.xml
+¦   ¦   workspace.xml
+¦   ¦   
+¦   +---dataSources
+¦   +---inspectionProfiles
+¦           Project_Default.xml
+¦           
++---.mvn
+¦   +---wrapper
+¦           maven-wrapper.jar
+¦           maven-wrapper.properties
+¦           
++---src
+¦   +---main
+¦   ¦   +---java
+¦   ¦   ¦   +---controller
+¦   ¦   ¦   ¦       AggiungiAlCarrelloServlet.java
+¦   ¦   ¦   ¦       AggiungiIndirizzoServlet.java
+¦   ¦   ¦   ¦       AggiungiRecensioneServlet.java
+¦   ¦   ¦   ¦       AggiuntaLibroServlet.java
+¦   ¦   ¦   ¦       AutocompleteServlet.java
+¦   ¦   ¦   ¦       CatalogoServlet.java
+¦   ¦   ¦   ¦       CheckoutServlet.java
+¦   ¦   ¦   ¦       CreaOrdineServlet.java
+¦   ¦   ¦   ¦       DettaglioLibroServlet.java
+¦   ¦   ¦   ¦       GestioneRecensioniServlet.java
+¦   ¦   ¦   ¦       LoginServlet.java
+¦   ¦   ¦   ¦       LogoutServlet.java
+¦   ¦   ¦   ¦       OrdiniUtentiServlet.java
+¦   ¦   ¦   ¦       RegistrazioneServlet.java
+¦   ¦   ¦   ¦       RimuoviDalCarrelloServlet.java
+¦   ¦   ¦   ¦       SessionCleanupListener.java
+¦   ¦   ¦   ¦       snippet.java
+¦   ¦   ¦   ¦       SvuotaCarrelloServlet.java
+¦   ¦   ¦   ¦       UltimiLibriServlet.java
+¦   ¦   ¦   ¦       VisualizzaCarrelloServlet.java
+¦   ¦   ¦   ¦       VisualizzaOrdiniServlet.java
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---model
+¦   ¦   ¦           Carrello.java
+¦   ¦   ¦           CarrelloDAO.java
+¦   ¦   ¦           Contiene.java
+¦   ¦   ¦           ContieneDAO.java
+¦   ¦   ¦           DBManager.java
+¦   ¦   ¦           Genere.java
+¦   ¦   ¦           GenereDAO.java
+¦   ¦   ¦           Indirizzo.java
+¦   ¦   ¦           IndirizzoDAO.java
+¦   ¦   ¦           Libro.java
+¦   ¦   ¦           LibroDAO.java
+¦   ¦   ¦           MetodoPagamento.java
+¦   ¦   ¦           MetodoPagamentoDAO.java
+¦   ¦   ¦           Ordine.java
+¦   ¦   ¦           OrdineDAO.java
+¦   ¦   ¦           Recensione.java
+¦   ¦   ¦           RecensioneDAO.java
+¦   ¦   ¦           Utente.java
+¦   ¦   ¦           UtenteDAO.java
+¦   ¦   ¦           
+¦   ¦   +---resources
+¦   ¦   +---webapp
+¦   ¦       ¦   aggiuntaLibro.jsp
+¦   ¦       ¦   carrello.jsp
+¦   ¦       ¦   catalogo.jsp
+¦   ¦       ¦   checkout.jsp
+¦   ¦       ¦   dettaglioLibro.jsp
+¦   ¦       ¦   gestioneRecensioni.jsp
+¦   ¦       ¦   index.jsp
+¦   ¦       ¦   navbar.jsp
+¦   ¦       ¦   ordini.jsp
+¦   ¦       ¦   ordiniUtenti.jsp
+¦   ¦       ¦   
+¦   ¦       +---css
+¦   ¦       ¦       stileCarrello.css
+¦   ¦       ¦       stileCheckout.css
+¦   ¦       ¦       stileLibro.css
+¦   ¦       ¦       style.css
+¦   ¦       ¦       
+¦   ¦       +---images
+¦   ¦       ¦       arrow.png
+¦   ¦       ¦       banner-bg.jpg
+¦   ¦       ¦       blog-1.jpg
+¦   ¦       ¦       blog-2.jpg
+¦   ¦       ¦       blog-3.jpg
+¦   ¦       ¦       blog-4.jpg
+¦   ¦       ¦       blog-5.jpg
+¦   ¦       ¦       book-1.png
+¦   ¦       ¦       book-10.png
+¦   ¦       ¦       book-2.png
+¦   ¦       ¦       book-3.png
+¦   ¦       ¦       book-4.png
+¦   ¦       ¦       book-5.png
+¦   ¦       ¦       book-6.png
+¦   ¦       ¦       book-7.png
+¦   ¦       ¦       book-8.png
+¦   ¦       ¦       book-9.png
+¦   ¦       ¦       book3.png
+¦   ¦       ¦       book5.png
+¦   ¦       ¦       book7.png
+¦   ¦       ¦       cal.jpg
+¦   ¦       ¦       deal-img.jpg
+¦   ¦       ¦       farfalla..gif
+¦   ¦       ¦       fumetti.jpg
+¦   ¦       ¦       goldwall.jpg
+¦   ¦       ¦       homee.jpg
+¦   ¦       ¦       ilpaziente.jpg
+¦   ¦       ¦       italia.jpg
+¦   ¦       ¦       lafortuna.jpg
+¦   ¦       ¦       lavia.jpg
+¦   ¦       ¦       letter-bg.jpg
+¦   ¦       ¦       lib.png
+¦   ¦       ¦       loader-img.gif
+¦   ¦       ¦       logo.gif
+¦   ¦       ¦       neews.webp
+¦   ¦       ¦       pic-1.png
+¦   ¦       ¦       pic-2.png
+¦   ¦       ¦       pic-3.png
+¦   ¦       ¦       pic-4.png
+¦   ¦       ¦       pic-5.png
+¦   ¦       ¦       pic-6.png
+¦   ¦       ¦       sfondo.jpg
+¦   ¦       ¦       sfondo3.jpg
+¦   ¦       ¦       sfondo4.jpg
+¦   ¦       ¦       sfondo5.jpg
+¦   ¦       ¦       sfondo6.webp
+¦   ¦       ¦       sfondo7.jpg
+¦   ¦       ¦       stand.png
+¦   ¦       ¦       stilton.jpg
+¦   ¦       ¦       stilton1.jpg
+¦   ¦       ¦       stilton2.jpg
+¦   ¦       ¦       stilton3.jpg
+¦   ¦       ¦       stilton4.jpg
+¦   ¦       ¦       stilton5.jpg
+¦   ¦       ¦       tutti.jpg
+¦   ¦       ¦       worldmap.png
+¦   ¦       ¦       
+¦   ¦       +---js
+¦   ¦       ¦       autocomplete.js
+¦   ¦       ¦       index.js
+¦   ¦       ¦       validazioni.js
+¦   ¦       ¦       
+¦   ¦       +---WEB-INF
+¦   ¦               web.xml
+¦   ¦               
+¦   +---test
+¦       +---java
+¦       +---resources
++---target
+    ¦   ProgettoTSW-1.0-SNAPSHOT.war
+    ¦   
+    +---classes
+    ¦   +---controller
+    ¦   ¦       AggiungiAlCarrelloServlet.class
+    ¦   ¦       AggiungiIndirizzoServlet.class
+    ¦   ¦       AggiungiRecensioneServlet.class
+    ¦   ¦       AggiuntaLibroServlet.class
+    ¦   ¦       AutocompleteServlet.class
+    ¦   ¦       CatalogoServlet.class
+    ¦   ¦       CheckoutServlet.class
+    ¦   ¦       CreaOrdineServlet.class
+    ¦   ¦       DettaglioLibroServlet.class
+    ¦   ¦       GestioneRecensioniServlet.class
+    ¦   ¦       LoginServlet.class
+    ¦   ¦       LogoutServlet.class
+    ¦   ¦       OrdiniUtentiServlet.class
+    ¦   ¦       RegistrazioneServlet.class
+    ¦   ¦       RimuoviDalCarrelloServlet.class
+    ¦   ¦       SessionCleanupListener.class
+    ¦   ¦       snippet.class
+    ¦   ¦       SvuotaCarrelloServlet.class
+    ¦   ¦       UltimiLibriServlet.class
+    ¦   ¦       VisualizzaCarrelloServlet.class
+    ¦   ¦       VisualizzaOrdiniServlet.class
+    ¦   ¦       
+    ¦   +---model
+    ¦           Carrello.class
+    ¦           CarrelloDAO.class
+    ¦           Contiene.class
+    ¦           ContieneDAO.class
+    ¦           DBManager.class
+    ¦           Genere.class
+    ¦           GenereDAO.class
+    ¦           Indirizzo.class
+    ¦           IndirizzoDAO.class
+    ¦           Libro.class
+    ¦           LibroDAO.class
+    ¦           MetodoPagamento.class
+    ¦           MetodoPagamentoDAO.class
+    ¦           Ordine.class
+    ¦           OrdineDAO.class
+    ¦           Recensione.class
+    ¦           RecensioneDAO.class
+    ¦           Utente.class
+    ¦           UtenteDAO.class
+    ¦           
+    +---generated-sources
+    ¦   +---annotations
+    +---ProgettoTSW-1.0-SNAPSHOT
+        ¦   aggiuntaLibro.jsp
+        ¦   carrello.jsp
+        ¦   catalogo.jsp
+        ¦   checkout.jsp
+        ¦   dettaglioLibro.jsp
+        ¦   gestioneRecensioni.jsp
+        ¦   index.jsp
+        ¦   navbar.jsp
+        ¦   ordini.jsp
+        ¦   ordiniUtenti.jsp
+        ¦   
+        +---css
+        ¦       stileCarrello.css
+        ¦       stileCheckout.css
+        ¦       stileLibro.css
+        ¦       style.css
+        ¦       
+        +---images
+        ¦       arrow.png
+        ¦       banner-bg.jpg
+        ¦       blog-1.jpg
+        ¦       blog-2.jpg
+        ¦       blog-3.jpg
+        ¦       blog-4.jpg
+        ¦       blog-5.jpg
+        ¦       book-1.png
+        ¦       book-10.png
+        ¦       book-2.png
+        ¦       book-3.png
+        ¦       book-4.png
+        ¦       book-5.png
+        ¦       book-6.png
+        ¦       book-7.png
+        ¦       book-8.png
+        ¦       book-9.png
+        ¦       book3.png
+        ¦       book5.png
+        ¦       book7.png
+        ¦       cal.jpg
+        ¦       deal-img.jpg
+        ¦       farfalla..gif
+        ¦       fumetti.jpg
+        ¦       goldwall.jpg
+        ¦       homee.jpg
+        ¦       ilpaziente.jpg
+        ¦       italia.jpg
+        ¦       lafortuna.jpg
+        ¦       lavia.jpg
+        ¦       letter-bg.jpg
+        ¦       lib.png
+        ¦       loader-img.gif
+        ¦       logo.gif
+        ¦       neews.webp
+        ¦       pic-1.png
+        ¦       pic-2.png
+        ¦       pic-3.png
+        ¦       pic-4.png
+        ¦       pic-5.png
+        ¦       pic-6.png
+        ¦       sfondo.jpg
+        ¦       sfondo3.jpg
+        ¦       sfondo4.jpg
+        ¦       sfondo5.jpg
+        ¦       sfondo6.webp
+        ¦       sfondo7.jpg
+        ¦       stand.png
+        ¦       stilton.jpg
+        ¦       stilton1.jpg
+        ¦       stilton2.jpg
+        ¦       stilton3.jpg
+        ¦       stilton4.jpg
+        ¦       stilton5.jpg
+        ¦       tutti.jpg
+        ¦       worldmap.png
+        ¦       
+        +---js
+        ¦       autocomplete.js
+        ¦       index.js
+        ¦       validazioni.js
+        ¦       
+        +---META-INF
+        ¦       MANIFEST.MF
+        ¦       
+        +---WEB-INF
+            ¦   web.xml
+            ¦   
+            +---classes
+            ¦   +---controller
+            ¦   ¦   ¦   AggiungiAlCarrelloServlet.class
+            ¦   ¦   ¦   AggiungiIndirizzoServlet.class
+            ¦   ¦   ¦   AggiungiRecensioneServlet.class
+            ¦   ¦   ¦   AggiuntaLibroServlet.class
+            ¦   ¦   ¦   AutocompleteServlet.class
+            ¦   ¦   ¦   CatalogoServlet.class
+            ¦   ¦   ¦   CheckoutServlet.class
+            ¦   ¦   ¦   CreaOrdineServlet.class
+            ¦   ¦   ¦   DettaglioLibroServlet.class
+            ¦   ¦   ¦   GestioneRecensioniServlet.class
+            ¦   ¦   ¦   LoginServlet.class
+            ¦   ¦   ¦   LogoutServlet.class
+            ¦   ¦   ¦   OrdiniUtentiServlet.class
+            ¦   ¦   ¦   RegistrazioneServlet.class
+            ¦   ¦   ¦   RimuoviDalCarrelloServlet.class
+            ¦   ¦   ¦   SessionCleanupListener.class
+            ¦   ¦   ¦   snippet.class
+            ¦   ¦   ¦   SvuotaCarrelloServlet.class
+            ¦   ¦   ¦   UltimiLibriServlet.class
+            ¦   ¦   ¦   VisualizzaCarrelloServlet.class
+            ¦   ¦   ¦   VisualizzaOrdiniServlet.class
+            ¦   ¦   ¦   
+            ¦   ¦   +---progettotsw
+            ¦   +---filter
+            ¦   +---model
+            ¦           Carrello.class
+            ¦           CarrelloDAO.class
+            ¦           Contiene.class
+            ¦           ContieneDAO.class
+            ¦           DBManager.class
+            ¦           Genere.class
+            ¦           GenereDAO.class
+            ¦           Indirizzo.class
+            ¦           IndirizzoDAO.class
+            ¦           Libro.class
+            ¦           LibroDAO.class
+            ¦           MetodoPagamento.class
+            ¦           MetodoPagamentoDAO.class
+            ¦           Ordine.class
+            ¦           OrdineDAO.class
+            ¦           Recensione.class
+            ¦           RecensioneDAO.class
+            ¦           Utente.class
+            ¦           UtenteDAO.class
+            ¦           
+            +---lib
+                    gson-2.10.1.jar
+                    jakarta.el-api-5.0.0.jar
+                    jakarta.servlet.jsp.jstl-3.0.1.jar
+                    jakarta.servlet.jsp.jstl-api-3.0.0.jar
+                    jstl-1.2.jar
+                    mysql-connector-j-9.2.0.jar
+                    protobuf-java-4.29.0.jar
+                    tomcat-jdbc-11.0.5.jar
+                    tomcat-juli-11.0.5.jar
+                    

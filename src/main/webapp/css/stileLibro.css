@@ -1,0 +1,223 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #111;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 50px 80px;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.book-layout {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 50px;
+    align-items: flex-start;
+}
+
+.book-image img {
+    width: 350px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-info h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    color: #001E6C;
+}
+
+.book-info p {
+    font-size: 2rem;
+    margin: 6px 0;
+}
+
+.book-info p strong {
+    display: inline-block;
+    min-width: 130px;
+    color: #333;
+}
+
+.book-price {
+    margin-top: 25px;
+    font-size: 1.6rem;
+    color: #B12704;
+    font-weight: bold;
+}
+
+.add-to-cart-btn {
+    background-color: #001E6C;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    margin-top: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0032a5;
+}
+
+.recensioni-section {
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+}
+
+.recensioni-section h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #001E6C;
+}
+
+.recensioni-section p,
+.recensioni-section li {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+@media (max-width: 768px) {
+
+    .container {
+        padding: 20px 10px;
+    }
+
+    .book-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .book-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .book-image img {
+        max-width: 40%;
+        height: auto;
+    }
+
+
+    .book-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    .book-info h1 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .book-info p {
+        font-size: 1.7rem;
+        line-height: 1.4;
+    }
+
+    .book-info p strong {
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .book-price {
+        font-size: 1.4rem;
+    }
+
+    .add-to-cart-btn {
+        font-size: 1.6rem;
+        width: 90%;
+        max-width: 280px;
+    }
+
+    .recensioni-section {
+        padding-top: 20px;
+    }
+
+    .recensioni-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .recensioni-section li {
+        font-size: 1.2rem;
+    }
+
+}
+.recensione-form-container {
+    margin: 40px auto;
+    max-width: 600px;
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+}
+
+.recensione-form-container h3 {
+    color: #1b1b80 !important;
+    font-size: 2rem !important;
+    margin-bottom: 20px;
+}
+
+form.recensione-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form.recensione-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+form.recensione-form .form-group label {
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 6px;
+}
+
+form.recensione-form .form-group input[type="text"],
+form.recensione-form .form-group textarea,
+form.recensione-form .form-group select {
+    padding: 12px !important;
+    font-size: 1.4rem !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px;
+    background-color: white !important;
+    color: #000 !important;
+}
+
+form.recensione-form button {
+    background-color: #1b1b80;
+    color: white;
+    padding: 12px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+form.recensione-form button:hover {
+    background-color: #000063;
+}
+.recensione-data {
+    display: block;
+    font-family: 'Courier New', Courier, monospace; /* stile digitale */
+    font-size: 1.2rem; /* leggermente più piccolo */
+    color: #555; /* grigio soft */
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+
