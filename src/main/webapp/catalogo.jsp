@@ -32,25 +32,19 @@
                 <!-- slider per pagine -->
                 <label for="minPagine">Pagine minime: <output id="outPagine">${minPagine != null ? minPagine : 0}</output></label>
                 <br>
-                <input type="range" id="minPagine" name="minPagine"
-                       min="0" max="2000" step="10"
-                       value="${minPagine != null ? minPagine : 0}"
-                       oninput="outPagine.value = this.value">
-
-                <!-- includi script in fondo pagina -->
-
+                <input type="range" id="minPagine" name="minPagine" min="0" max="2000" step="10" value="${minPagine != null ? minPagine : 0}" oninput="outPagine.value = this.value">
 
                 <br><br>
                 <label for="anno">Anno:</label>
-                <input type="number" name="anno" id="anno">
+                <input type="number" name="anno" id="anno" min="1000" max="<%= java.time.Year.now().getValue() %>" pattern="[0-9]{4}" title="Inserisci un anno valido">
                 <br><br>
 
                 <label for="prezzoMin">Prezzo Min:</label>
-                <input type="number" step="0.01" name="prezzoMin" id="prezzoMin">
+                <input type="number" step="0.01" min="0" name="prezzoMin" id="prezzoMin" title="Prezzo minimo maggiore o uguale a 0">
                 <br><br>
 
                 <label for="prezzoMax">Prezzo Max:</label>
-                <input type="number" step="0.01" name="prezzoMax" id="prezzoMax">
+                <input type="number" step="0.01" min="0" name="prezzoMax" id="prezzoMax" title="Prezzo massimo maggiore o uguale a 0">
                 <br><br>
                 <button type="submit" class="btn">Applica</button>
             </form>

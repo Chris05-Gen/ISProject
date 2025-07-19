@@ -28,6 +28,31 @@ public class CatalogoServlet extends HttpServlet {
         BigDecimal prezzoMax = parseBD(request.getParameter("prezzoMax"));
         LibroDAO dao = new LibroDAO();
         try {
+            // Validazione base
+            if (anno != null && (anno < 1000 || anno > java.time.Year.now().getValue())) {
+                request.setAttribute("error", "Anno non valido!");
+            }
+            if (prezzoMin != null && prezzoMin.compareTo(BigDecimal.ZERO) < 0) {
+                request.setAttribute("error", "Il prezzo minimo non può essere negativo!");
+            }
+            if (prezzoMax != null && prezzoMax.compareTo(BigDecimal.ZERO) < 0) {
+                request.setAttribute("error", "Il prezzo massimo non può essere negativo!");
+            }
+            if (prezzoMin != null && prezzoMax != null && prezzoMin.compareTo(prezzoMax) > 0) {
+                request.setAttribute("error", "Il prezzo minimo non può essere maggiore del massimo!");
+            }
+            if (minPagine != null && minPagine < 0) {
+                request.setAttribute("error", "Il numero minimo di pagine non può essere negativo!");
+            }
+
+// Se c'è un errore, ricarica la pagina con il messaggio e non fa query
+            if (request.getAttribute("error") != null) {
+                GenereDAO gdao = new GenereDAO();
+                List<Genere> generi = gdao.findAll();
+                request.setAttribute("generi", generi);
+                request.getRequestDispatcher("catalogo.jsp").forward(request, response);
+                return;
+            }
             List<Libro> lista = dao.cercaConFiltri(idGenere, anno, prezzoMin, prezzoMax, minPagine );
             GenereDAO gdao = new GenereDAO();
             List<Genere> generi = gdao.findAll();

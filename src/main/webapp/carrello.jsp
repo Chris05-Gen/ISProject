@@ -3,6 +3,7 @@
     <html>
     <head>
         <title>Carrello</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/stileCarrello.css">
         <link rel="stylesheet" href="css/style.css">
@@ -32,7 +33,7 @@
                 <tbody>
                 <c:forEach var="item" items="${carrelloItems}">
                     <tr>
-                        <td><a href="DettaglioLibroServlet?isbn=${item.libro.isbn}" aria-label="Visualizza dettagli di ${item.libro.titolo}"> <img src="${item.libro.copertina}" alt="Copertina del libro ${item.libro.titolo}"></a></td>
+                        <td><a href="DettaglioLibroServlet?isbn=${item.libro.isbn}" class="img" aria-label="Visualizza dettagli di ${item.libro.titolo}"> <img src="${item.libro.copertina}" alt="Copertina del libro ${item.libro.titolo}"></a></td>
                         <td>${item.libro.titolo}</td>
                         <td>€ ${item.libro.prezzo}</td>
                         <td>${item.quantita}</td>

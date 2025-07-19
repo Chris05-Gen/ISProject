@@ -14,6 +14,7 @@
     border: 0 !important;
   }
 </style>
+<link rel="stylesheet" href="css/style.css">
 <c:if test="${not empty sessionScope.successo}">
   <div class="toast success-toast" id="login-toast">
     <span>${sessionScope.successo}</span>
