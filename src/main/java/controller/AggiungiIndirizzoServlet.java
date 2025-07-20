@@ -18,11 +18,14 @@ public class AggiungiIndirizzoServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Utente utente = (Utente) session.getAttribute("utente");
 
+        //Metodo di sicurezza, se per sbaglio un utente guest
+        // accede alla servlet viene rimabalzato a home
         if (utente == null) {
             response.sendRedirect("home");
             return;
         }
 
+        //recupero tutti i dati dal form, per inizializzare un oggetto indirizzo
         Indirizzo nuovo = new Indirizzo();
         nuovo.setIdUtente(utente.getId());
         nuovo.setVia(request.getParameter("via"));
@@ -34,6 +37,7 @@ public class AggiungiIndirizzoServlet extends HttpServlet {
 
         IndirizzoDAO dao = new IndirizzoDAO();
 
+        //aggiungo l'indirizzo al DB
         try {
             dao.addIndirizzo(nuovo);
             session.setAttribute("successo", "Indirizzo aggiunto con successo!");

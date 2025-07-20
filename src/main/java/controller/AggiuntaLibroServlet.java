@@ -20,13 +20,17 @@ public class AggiuntaLibroServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Utente admin = (Utente) req.getSession().getAttribute("utente");
+
+        // se non admin o non loggato, rimbalzo alla home
         if (admin == null || !"Admin".equals(admin.getTipo())) {
             resp.sendRedirect("unauthorized.jsp");
             return;
         }
-
+            // al primo caricamento della pagina ho
+        // la necessità di recuperare tutti i generi dal db, per poter quindi inserire un libro
         try {
             req.setAttribute("generi", genereDAO.findAll());
+            //invio i generi alla pagina e la chiamo
             req.getRequestDispatcher("aggiuntaLibro.jsp").forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -48,6 +52,7 @@ public class AggiuntaLibroServlet extends HttpServlet {
 
         String errore = null;
 
+        // recupero tutti i dati dal form e determino la loro validità
         if (isbn == null || !isbn.matches("\\d{10,13}")) {
             errore = "ISBN non valido.";
         } else if (titolo == null || titolo.isBlank()) {
@@ -64,6 +69,9 @@ public class AggiuntaLibroServlet extends HttpServlet {
             errore = "Genere non selezionato.";
         }
     try {
+        // qualora ci fosse un errore lo segnalo,
+        // ma comunque recupero i generi per far rimanere
+        // la pagina di aggiunta coerente e funzionante
         if (errore != null) {
             req.setAttribute("errore", errore);
             req.setAttribute("generi", genereDAO.findAll()); // Riporta i generi nella pagina
@@ -75,7 +83,7 @@ public class AggiuntaLibroServlet extends HttpServlet {
         resp.sendRedirect("home.jsp");
         return;
     }
-
+        // creo oggetto libro con tutti i dati del form
     Libro l = new Libro();
         l.setIsbn(req.getParameter("isbn"));
         l.setTitolo(req.getParameter("titolo"));
@@ -88,7 +96,8 @@ public class AggiuntaLibroServlet extends HttpServlet {
         l.setIdGenere(Integer.parseInt(req.getParameter("idGenere")));
 
 
-
+        // lo creo nel DB, e ricarico
+        // la pagina di aggiunta libro, segnalando che l'aggiunta è stata fatta con successo
         try {
             libroDAO.create(l);
         } catch (SQLException e) {

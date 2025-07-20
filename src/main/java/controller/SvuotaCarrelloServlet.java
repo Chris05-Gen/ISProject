@@ -19,11 +19,12 @@ public class SvuotaCarrelloServlet extends HttpServlet {
         try {
             Utente utente = (Utente) session.getAttribute("utente");
             int carrelloId;
-
+            // Utente Loggato : recupero carrello con idUtente dal DB
             if (utente != null) {
                 Carrello carrello = carrelloDAO.findByUtenteId(utente.getId());
                 carrelloId = carrello.getId();
-            } else {
+            } // Utente GUest : recupero il carrello con carrelloId salvato in sessione
+            else {
                 Integer id = (Integer) session.getAttribute("carrelloId");
                 if (id == null) {
                     response.sendRedirect("VisualizzaCarrelloServlet");

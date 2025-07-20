@@ -61,15 +61,8 @@
                 session.setAttribute("utente", registrato);
                 session.setAttribute("successo", "Registrazione avvenuta con successo!");
 
-                // Redirect dinamico come nel login
-                String redirect = (String) session.getAttribute("redirectAfterLogin");
+                response.sendRedirect("home");
 
-                if (redirect != null && !redirect.contains("login")) {
-                    session.removeAttribute("redirectAfterLogin");
-                    response.sendRedirect(redirect);
-                } else {
-                    response.sendRedirect("home");
-                }
 
             } catch (Exception e) {
                 throw new ServletException(e);

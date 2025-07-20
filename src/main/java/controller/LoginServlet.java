@@ -54,18 +54,21 @@ public class LoginServlet extends HttpServlet {
                         List<Contiene> guestContenuti = contieneDAO.getContenuto(guestCarrelloId);
                         List<Contiene> userContenuti = contieneDAO.getContenuto(carrelloUtente.getId());
 
-                        // Creiamo mappa ISBN ➜ quantità per il carrello utente
+                        // Creiamo mappa ISBN ➜ quantità per il carrello utente (mappo isbn con quantità di tale libro)
                         Map<String, Integer> userQuantità = new HashMap<>();
                         for (Contiene c : userContenuti) {
                             userQuantità.put(c.getIsbn(), c.getQuantita());
                         }
 
-                        // Per ogni libro nel guest carrello:
+                        // Per ogni libro nel guest carrello: prendo la quantità, se è
+                        // nella map, e quindi già nel carrello, alla quantità di tale libro aggiungo quella
+                        // nella mappa
                         for (Contiene g : guestContenuti) {
                             int nuovaQuantità = g.getQuantita();
                             if (userQuantità.containsKey(g.getIsbn())) {
                                 nuovaQuantità += userQuantità.get(g.getIsbn());
                             }
+                            //aggiungo i libri che appaiano in guest nel carello dell'utente loggato
                             contieneDAO.aggiungiLibro(carrelloUtente.getId(), g.getIsbn(), nuovaQuantità);
                         }
 

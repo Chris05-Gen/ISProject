@@ -20,6 +20,8 @@ public class CatalogoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Alla prima chiamata sono tutti vuoti i parametri,
+        // pertanto vengono prelevati tutti i libri
         String genere = request.getParameter("genere");
         Integer idGenere = genere != null && !genere.isEmpty() ? Integer.parseInt(genere) : null;
         Integer minPagine = parseIntSafe(request.getParameter("minPagine"));
@@ -45,7 +47,8 @@ public class CatalogoServlet extends HttpServlet {
                 request.setAttribute("error", "Il numero minimo di pagine non può essere negativo!");
             }
 
-// Se c'è un errore, ricarica la pagina con il messaggio e non fa query
+            // Se c'è un errore, ricarica la pagina con il messaggio e non fa query
+            // e recupera tutti i generi
             if (request.getAttribute("error") != null) {
                 GenereDAO gdao = new GenereDAO();
                 List<Genere> generi = gdao.findAll();
@@ -53,10 +56,11 @@ public class CatalogoServlet extends HttpServlet {
                 request.getRequestDispatcher("catalogo.jsp").forward(request, response);
                 return;
             }
+            // se invece vengono passati i parametri si esegue la query con i parametri passati
             List<Libro> lista = dao.cercaConFiltri(idGenere, anno, prezzoMin, prezzoMax, minPagine );
             GenereDAO gdao = new GenereDAO();
             List<Genere> generi = gdao.findAll();
-
+            
             request.setAttribute("generi", generi);
             request.setAttribute("selectedGenere", idGenere);
             request.setAttribute("minPagine", minPagine);

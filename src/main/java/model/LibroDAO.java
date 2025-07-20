@@ -163,30 +163,6 @@ public class LibroDAO {
         }
     }
 
-    public int countConFiltri(Integer idGenere, Integer anno, BigDecimal minPrezzo, BigDecimal maxPrezzo, Integer minPagine) throws SQLException {
-        StringBuilder sql = new StringBuilder("SELECT COUNT(*) FROM libro WHERE 1=1");
-        if (idGenere != null) sql.append(" AND IDGenere = ?");
-        if (anno != null) sql.append(" AND AnnoPubblicazione = ?");
-        if (minPrezzo != null) sql.append(" AND Prezzo >= ?");
-        if (maxPrezzo != null) sql.append(" AND Prezzo <= ?");
-        if (minPagine != null) sql.append(" AND Pagine >= ?");
-
-        try (Connection conn = db.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql.toString())) {
-
-            int i = 1;
-            if (idGenere != null) ps.setInt(i++, idGenere);
-            if (anno != null) ps.setInt(i++, anno);
-            if (minPrezzo != null) ps.setBigDecimal(i++, minPrezzo);
-            if (maxPrezzo != null) ps.setBigDecimal(i++, maxPrezzo);
-            if (minPagine != null) ps.setInt(i++, minPagine);
-
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) return rs.getInt(1);
-        }
-        return 0;
-    }
-
     private Libro extractLibro(ResultSet rs) throws SQLException {
         Libro l = new Libro();
         l.setIsbn(rs.getString("ISBN"));

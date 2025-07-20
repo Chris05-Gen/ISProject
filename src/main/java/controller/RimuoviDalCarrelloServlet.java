@@ -24,6 +24,7 @@ public class RimuoviDalCarrelloServlet extends HttpServlet {
         try {
             int carrelloId;
 
+            // Utente Loggato : recupera il carrello dal DB
             if (utente != null) {
                 Carrello carrello = carrelloDAO.findByUtenteId(utente.getId());
                 if (carrello == null) {
@@ -31,7 +32,8 @@ public class RimuoviDalCarrelloServlet extends HttpServlet {
                     return;
                 }
                 carrelloId = carrello.getId();
-            } else {
+            } // Utente Guest : recupera idCarrello dalla sessione
+            else {
                 Integer guestCarrelloId = (Integer) session.getAttribute("carrelloId");
                 if (guestCarrelloId == null) {
                     response.sendRedirect("VisualizzaCarrelloServlet");
@@ -40,7 +42,9 @@ public class RimuoviDalCarrelloServlet extends HttpServlet {
                 carrelloId = guestCarrelloId;
             }
 
+            // Recupera quantità del libro dal carrello
             int quantita = contieneDAO.getQuantitaLibro(carrelloId, isbn);
+
 
             if (quantita > 1) {
                 contieneDAO.decrementaQuantitaLibro(carrelloId, isbn);

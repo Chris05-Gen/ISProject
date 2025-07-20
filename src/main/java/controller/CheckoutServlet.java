@@ -18,15 +18,17 @@ import java.util.Map;
 
 @WebServlet("/CheckoutServlet")
 public class CheckoutServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         Utente utente = (Utente) session.getAttribute("utente");
 
+        // Misura di Sicurezza nel caso Guest acceda alla Servlet
         if (utente == null) {
-            resp.sendRedirect("home");
+            response.sendRedirect("home");
             return;
         }
 
+        
         CarrelloDAO carrelloDAO = new CarrelloDAO();
         ContieneDAO contieneDAO = new ContieneDAO();
         LibroDAO libroDAO = new LibroDAO();
@@ -39,12 +41,13 @@ public class CheckoutServlet extends HttpServlet {
                 carrello = carrelloDAO.createCarrello(utente.getId()); // crea uno nuovo se assente
             }
 
+            // Recupero la lista di tutti i libri nel carrello
             List<Contiene> contenuti = contieneDAO.getContenuto(carrello.getId());
 
 
             List<Map<String, Object>> dettagliCarrello = new ArrayList<>();
             BigDecimal totale = BigDecimal.ZERO;
-
+            // Per ogni libro del carrello preparo 3 coppie Stringa-Oggetto 
             for (Contiene c : contenuti) {
                 Libro libro = libroDAO.findByISBN(c.getIsbn());
 
@@ -59,21 +62,23 @@ public class CheckoutServlet extends HttpServlet {
 
                 dettagliCarrello.add(item);
             }
-
+            // Recupero tutti gli indirizzi dell'Utente
             List<Indirizzo> indirizzi = indirizzoDAO.getIndirizziByUtente(utente.getId());
-
+            
+            // Recupero tutti i metodiPagamento dal DB
             List<MetodoPagamento> metodiPagamento = metodoPagamentoDAO.getAll();
+            
+            //Passo tutto alla jsp
+            request.setAttribute("metodiPagamento", metodiPagamento);
+            request.setAttribute("carrelloItems", dettagliCarrello);
+            request.setAttribute("totale", totale.doubleValue());
+            request.setAttribute("indirizzi", indirizzi);
 
-            req.setAttribute("metodiPagamento", metodiPagamento);
-            req.setAttribute("carrelloItems", dettagliCarrello);
-            req.setAttribute("totale", totale.doubleValue());
-            req.setAttribute("indirizzi", indirizzi);
-
-            req.getRequestDispatcher("checkout.jsp").forward(req, resp);
+            request.getRequestDispatcher("checkout.jsp").forward(request, response);
 
         } catch (SQLException e) {
             e.printStackTrace();
-            resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Errore durante il caricamento del checkout");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Errore durante il caricamento del checkout");
         }
     }
 }

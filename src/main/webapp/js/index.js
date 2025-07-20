@@ -146,18 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("🟡 Swiper non inizializzato: non richiesto in questa pagina");
     }
 
-        const btn = document.getElementById("btn-aggiungi-indirizzo");
-        const form = document.getElementById("form-aggiungi-indirizzo");
-        console.log("btn:", btn, "form:", form);
 
-        if (btn && form) {
-            btn.addEventListener("click", () => {
-                form.style.display = "block";
-                btn.style.display = "none";
-            });
-        } else {
-            console.warn("❌ Bottoni/form non trovati nel DOM!");
-        }
     const btnAggiungi = document.getElementById("btn-aggiungi-indirizzo");
     const btnAnnulla = document.getElementById("btn-annulla-indirizzo");
     const formAggiunta = document.getElementById("form-aggiungi-indirizzo");

@@ -18,7 +18,7 @@ public class DettaglioLibroServlet extends HttpServlet {
 
         String isbn = request.getParameter("isbn");
         if (isbn == null || isbn.isEmpty()) {
-            response.sendRedirect("errore.jsp"); // oppure pagina home
+            response.sendRedirect("home"); // oppure pagina home
             return;
         }
 
@@ -30,7 +30,7 @@ public class DettaglioLibroServlet extends HttpServlet {
             List<Recensione> recensioni = recensioneDAO.getByLibro(isbn);
 
             if (libro == null) {
-                response.sendRedirect("errore.jsp"); // libro non trovato
+                response.sendRedirect("home"); // libro non trovato
                 return;
             }
 

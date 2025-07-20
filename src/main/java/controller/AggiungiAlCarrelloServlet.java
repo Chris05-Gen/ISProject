@@ -66,6 +66,6 @@ public class AggiungiAlCarrelloServlet extends HttpServlet {
         }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response); // fai sì che GET reindirizzi al POST
+        doPost(request, response);
     }
 }

@@ -19,11 +19,13 @@ public class AggiungiRecensioneServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         Utente utente = (Utente) session.getAttribute("utente");
 
+        // per motivi di sicurezza se un utente non loggato invia la servlet,
+        // viene rimbalzato alla home
         if (utente == null) {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("home");
             return;
         }
-
+        // riceve i dati dal form per aggiunta recensioni
         Integer idUtente = utente.getId();
         String isbn = request.getParameter("isbn");
         String titolo = request.getParameter("titolo");
@@ -61,17 +63,18 @@ public class AggiungiRecensioneServlet extends HttpServlet {
             request.getRequestDispatcher("dettagliLibro.jsp").forward(request, response);
             return;
         }
-
+        // se dopo la validazione non ci sono errori crea un oggetto recensione
         Date data = Date.valueOf(LocalDate.now());
         Recensione recensione = new Recensione(0, idUtente, isbn, titolo, testo, valutazione, data);
-
+        // memorizza la recensione nel DB
         try {
             RecensioneDAO dao = new RecensioneDAO();
             dao.addRecensione(recensione);
         } catch (Exception e) {
             throw new ServletException("Errore durante l'aggiunta della recensione", e);
         }
-
+        //Ricarica la pagina dettaglio del libro in cui si stava prima
+        // di invocare la servlet, che pertanto mostrerà in aggiunta questa recensione
         response.sendRedirect("DettaglioLibroServlet?isbn=" + isbn);
     }
 }

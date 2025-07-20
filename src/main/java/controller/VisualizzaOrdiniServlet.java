@@ -11,13 +11,14 @@ import java.util.*;
 
 @WebServlet("/VisualizzaOrdiniServlet")
 public class VisualizzaOrdiniServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         Utente u = (Utente) session.getAttribute("utente");
 
+        // se un utente guest riesce a invocare questa pagina lo rimbalziamo alla home
         if (u == null) {
             session.setAttribute("errore", "Utente inesistente");
-            resp.sendRedirect("home");
+            response.sendRedirect("home");
             return;
         }
 
@@ -29,10 +30,13 @@ public class VisualizzaOrdiniServlet extends HttpServlet {
         try {
             List<Ordine> ordini = ordineDAO.getOrdiniByUtente(idUtente);
 
-            // Mappa Ordine ID → MetodoPagamento e Indirizzo
+            // Mappa Ordine ID → MetodoPagamento e Indirizzo, 
+            // per ogni ordine recupero dall'id del pagamento e dell'indirizzo 
+            // a cosa corrispondono nelle rispettiva tabelle
             Map<Integer, MetodoPagamento> mappaPagamenti = new HashMap<>();
             Map<Integer, Indirizzo> mappaIndirizzi = new HashMap<>();
 
+            // recuper e associo a ogni ordine metodo e indirizzo corrispondenti
             for (Ordine ordine : ordini) {
                 MetodoPagamento pagamento = pagamentoDAO.getMetodoById(ordine.getIdMetodoPagamento());
                 Indirizzo indirizzo = indirizzoDAO.getIndirizzoById(ordine.getIdIndirizzo());
@@ -40,17 +44,18 @@ public class VisualizzaOrdiniServlet extends HttpServlet {
                 mappaPagamenti.put(ordine.getId(), pagamento);
                 mappaIndirizzi.put(ordine.getId(), indirizzo);
             }
+            
+            // li invio alla pagina ordini.jsp tramite la richiesta
+            request.setAttribute("ordini", ordini);
+            request.setAttribute("mappaPagamenti", mappaPagamenti);
+            request.setAttribute("mappaIndirizzi", mappaIndirizzi);
 
-            req.setAttribute("ordini", ordini);
-            req.setAttribute("mappaPagamenti", mappaPagamenti);
-            req.setAttribute("mappaIndirizzi", mappaIndirizzi);
-
-            RequestDispatcher dispatcher = req.getRequestDispatcher("ordini.jsp");
-            dispatcher.forward(req, resp);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ordini.jsp");
+            dispatcher.forward(request, response);
 
         } catch (SQLException e) {
             e.printStackTrace();
-            resp.sendError(500, "Errore durante il recupero degli ordini");
+            response.sendError(500, "Errore durante il recupero degli ordini");
         }
     }
 }

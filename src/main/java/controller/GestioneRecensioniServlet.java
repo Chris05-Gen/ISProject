@@ -20,12 +20,13 @@ public class GestioneRecensioniServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Utente admin = (Utente) request.getSession().getAttribute("utente");
+        // recupero attributo utente dalla sessione, se non admin rimbalzo a home
         if (admin == null || !"Admin".equals(admin.getTipo())) {
             session.setAttribute("errore","Account non autorizzato");
             response.sendRedirect("home");
             return;
         }
-
+        // recupero tutt le info delle recensioni fatte da tutte gli utenti
         try {
             List<Recensione> recensioni = recensioneDAO.getAllRecensioniConNomeUtente();
             request.setAttribute("recensioni", recensioni);
@@ -40,8 +41,13 @@ public class GestioneRecensioniServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // nella pagina che visualizza
+        // tutte le recensioni vi è la possibilità di eliminarle tramite un bottone in un form POST
         HttpSession session = request.getSession();
         int id = Integer.parseInt(request.getParameter("idRecensione"));
+
+        // recupero id della recensione dal form e la elimino, infine ricarico
+        // la pagina normalmente in modo da vedere direttamente l'eliminazione del commento
         try {
             recensioneDAO.deleteRecensioneById(id);
         } catch (SQLException e) {
