@@ -95,6 +95,7 @@ table img {
     display: block;
     margin: 15px 0 5px;
     font-weight: 500;
+    font-size: 1.5rem;
 }
 
 .checkout-form input {
@@ -141,6 +142,30 @@ table img {
 }
 .metodopagamento select{
     font-size: 2rem;
+}
+.radio-block {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: border 0.2s;
+    cursor: pointer;
+}
+
+.radio-block input[type="radio"] {
+    width: 2rem;
+    height: 2rem;
+    accent-color: #27408B; /* Richiamo al blu usato nel tuo tema */
+    margin-right: 1rem;
+}
+
+/* Effetto focus o checked */
+.radio-block input[type="radio"]:focus + span,
+.radio-block input[type="radio"]:checked + span {
+    border-color: #27408B;
+    font-weight: bold;
 }
 
 

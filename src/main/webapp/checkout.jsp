@@ -83,7 +83,7 @@
           <c:forEach var="addr" items="${indirizzi}">
             <label class="radio-block">
               <input type="radio" name="idIndirizzo" value="${addr.id}" required>
-                ${addr.via}, ${addr.cap}, ${addr.citta} (${addr.provincia}) - ${addr.nazione}<br>
+                ${addr.via}, ${addr.cap}, ${addr.citta} (${addr.provincia}) - ${addr.nazione}
               📞 ${addr.telefono}
             </label>
           </c:forEach>
