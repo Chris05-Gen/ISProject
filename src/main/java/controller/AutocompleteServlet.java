@@ -6,6 +6,8 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import model.Libro;
 import model.LibroDAO;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -30,11 +32,18 @@ public class AutocompleteServlet extends HttpServlet {
             LibroDAO dao = new LibroDAO();
             List<Libro> libri = dao.cercaPerTitolo(term);
 
-            Gson gson = new Gson();
-            String json = gson.toJson(libri);
-            response.getWriter().write(json);
+            JSONArray array = new JSONArray();
 
-        } catch (SQLException e) {
+            for (Libro l : libri) {
+                JSONObject obj = new JSONObject();
+                obj.put("titolo", l.getTitolo());
+                obj.put("isbn", l.getIsbn());
+                array.add(obj);
+            }
+
+            response.getWriter().write(array.toJSONString());
+
+        } catch (Exception e) {
             e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
