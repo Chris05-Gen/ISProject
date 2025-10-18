@@ -36,3 +36,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+TSW/src/main/java/model/DBManager.java
